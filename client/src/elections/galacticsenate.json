@@ -1,0 +1,57 @@
+{
+  "name":"Galactic Chancellor Election",
+	"description":"In the midst of the Naboo crisis, the galactic senate passed a vote of no confiderence in Chancellor Valorum's leadership. Now, the senate must elect a new leader for the Galaxy.",
+	"numcands":6,
+	"candidates": ["Palpatine", "Yoda", "Jar Jar Binks", "R2D2", "C3PO", "Qui Gon Jinn"],
+  "ballots": [
+			{	"votes": 28765,
+				"order": ["Palpatine", "R2D2", "Yoda", "C3PO", "Qui Gon Jinn", "Jar Jar Binks"]
+			},
+			{       "votes": 17845,
+                                "order": ["R2D2", "Yoda", "C3PO", "Palpatine", "Qui Gon Jinn", "Jar Jar Binks"]
+                        },
+			{       "votes": 16534,
+                                "order": ["Qui Gon Jinn", "R2D2", "Palpatine", "Yoda", "C3PO", "Jar Jar Binks"]
+                        },
+			{       "votes": 15456,
+                                "order": ["C3PO", "Qui Gon Jinn", "Yoda", "R2D2", "Palpatine", "Jar Jar Binks"]
+                        },
+			{       "votes": 12765,
+                                "order": ["Yoda", "Palpatine", "R2D2", "C3PO", "Qui Gon Jinn", "Jar Jar Binks"]
+                        },
+			{       "votes": 11180,
+                                "order": ["Palpatine", "Yoda", "Qui Gon Jinn", "R2D2", "C3PO", "Jar Jar Binks"]
+                        },
+			{       "votes": 9964,
+                                "order": ["Qui Gon Jinn", "R2D2", "C3PO", "Palpatine", "Yoda", "Jar Jar Binks"]
+                        },
+			{       "votes": 8745,
+									              "order": ["R2D2", "C3PO", "Qui Gon Jinn", "Yoda", "Palpatine", "Jar Jar Binks"]
+									      },
+			{       "votes": 6969,
+																"order": ["Qui Gon Jinn", "Yoda", "R2D2", "Palpatine", "C3PO", "Jar Jar Binks"]
+												},
+			{       "votes": 6901,
+																"order": ["C3PO", "Palpatine", "Yoda", "Qui Gon Jinn", "R2D2", "Jar Jar Binks"]
+												},
+      {       "votes": 5467,
+              "order": ["Palpatine", "R2D2", "Yoda", "Qui Gon Jinn", "C3PO", "Jar Jar Binks"]
+                        },
+      {       "votes": 5234,
+              "order": ["Yoda", "Qui Gon Jinn", "R2D2", "Palpatine", "C3PO", "Jar Jar Binks"]
+                        },
+      {       "votes": 4634,
+              "order": ["C3PO", "Qui Gon Jinn", "Palpatine", "R2D2", "Yoda", "Jar Jar Binks"]
+                        },
+      {       "votes": 3333,
+              "order": ["R2D2", "Yoda", "C3PO", "Qui Gon Jinn", "Palpatine", "Jar Jar Binks"]
+                  			},
+      {       "votes": 1987,
+              "order": ["Qui Gon Jinn", "C3PO", "Yoda", "R2D2", "Palpatine", "Jar Jar Binks"]
+                  			},
+      {       "votes": 1567,
+              "order": ["C3PO", "R2D2", "Palpatine", "Yoda", "Qui Gon Jinn", "Jar Jar Binks"]
+                  			}
+		]
+
+}

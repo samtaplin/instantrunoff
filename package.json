@@ -1,0 +1,26 @@
+{
+  "name": "socialchoice",
+  "version": "1.0.0",
+  "description": "Allows users to use decision rules to make social choices",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "server": "nodemon",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client"
+  },
+  "author": "Sam Taplin",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.12.2",
+    "mongoose": "^6.0.8",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.2"
+  }
+}

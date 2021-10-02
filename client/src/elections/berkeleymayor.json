@@ -1,0 +1,38 @@
+{
+	"name":"Berkeley Mayor Election",
+	"description":"Berkeley, home to America's top college, goes to the polls to elect its next mayor. The field of candidates is small but formidable.",
+	"numcands":4,
+	"candidates": ["Oski", "Carol Christ", "Chairman Bob", "Alice Waters"],
+	"ballots": [
+			{	"votes": 4567,
+				"order": ["Oski", "Carol Christ", "Alice Waters", "Chairman Bob"]
+			},
+			{       "votes": 2599,
+                                "order": ["Carol Christ", "Alice Waters", "Chairman Bob", "Oski"]
+                        },
+			{       "votes": 1345,
+                                "order": ["Alice Waters", "Chairman Bob", "Carol Christ", "Oski"]
+                        },
+			{       "votes": 1587,
+                                "order": ["Chairman Bob", "Alice Waters", "Carol Christ", "Oski"]
+                        },
+			{       "votes": 267,
+                                "order": ["Oski", "Alice Waters", "Carol Christ", "Chairman Bob"]
+                        },
+			{       "votes": 250,
+                                "order": ["Chairman Bob", "Oski", "Carol Christ", "Alice Waters"]
+                        },
+			{       "votes": 150,
+                                "order": ["Oski", "Chairman Bob", "Alice Waters", "Carol Christ"]
+                        },
+			{       "votes": 197,
+									              "order": ["Alice Waters", "Oski", "Carol Christ", "Chairman Bob"]
+									      },
+			{       "votes": 102,
+																"order": ["Carol Christ", "Oski", "Alice Waters", "Chairman Bob"]
+												},
+			{       "votes": 98,
+																"order": ["Alice Waters", "Carol Christ", "Oski", "Chairman Bob"]
+												}
+		]
+}
