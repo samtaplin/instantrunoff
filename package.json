@@ -1,6 +1,9 @@
 {
   "name": "socialchoice",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "Allows users to use decision rules to make social choices",
   "main": "app.js",
   "scripts": {
