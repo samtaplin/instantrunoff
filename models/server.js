@@ -39,7 +39,7 @@ class Server {
     path.join(__dirname,"../client/build")));
   }
   posts() {
-    this.app.post('/login', (req, res) => {
+    this.app.post('/login/', (req, res) => {
       // Insert Login Code Here
       this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
             if (user) {
@@ -51,7 +51,7 @@ class Server {
         })
     });
 
-    this.app.post('/create', (req, res) => {
+    this.app.post('/create/', (req, res) => {
       this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
             if (user) {
               res.send('Username Already Exists')
@@ -67,7 +67,7 @@ class Server {
         })
     });
 
-    this.app.post('/getelect', (req, res) => {
+    this.app.post('/getelect/', (req, res) => {
       // Insert Login Code Here
       this.Election.findOne({ _id: ObjectId(req.body.eid)}, (err, elec) => {
             if (elec) {
@@ -79,7 +79,7 @@ class Server {
         })
     });
 
-    this.app.post('/createelect', (req, res) => {
+    this.app.post('/createelect/', (req, res) => {
       // Insert Login Code Here
       var created = new this.Election({
           name: req.body.name,
