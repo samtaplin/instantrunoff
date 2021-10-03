@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -245,7 +244,7 @@ class Simulator extends React.Component {
 
       var newelections = this.state.elections;
       for (var eid of userstore.eids) {
-        axios.post('/getelect', {eid: eid})
+        axios.post('/getelect/', {eid: eid})
         .then(response => {
           newelections.push(response.data);
           this.setState({elections: newelections, user: userstore});

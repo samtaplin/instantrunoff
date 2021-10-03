@@ -28,7 +28,7 @@ Borda.prototype.forward = function() {
   var thisround = votes.slice();
   votes = votes.map((numv, i) => numv * (this.election.numcands - 1 - this.step) );
   var tallies;
-  if (this.step == 0) {
+  if (this.step === 0) {
     tallies = this.round.candidates.slice().map((candidate, i) =>
     {var votetally = {
           "name":candidate,
@@ -54,12 +54,12 @@ Borda.prototype.forward = function() {
   for (var j = 0; j < this.round.candidates.length; j++) {
     total += this.round.votes[j];
   }
-  for (var j = 0; j < this.round.candidates.length; j++) {
+  for (j = 0; j < this.round.candidates.length; j++) {
     this.round.shares[j] = (this.round.votes[j] / total) * 100;
     this.round.eliminated[j] = thisround[j] + " #" + (this.step + 1) + " votes counted.";
   }
   this.step += 1;
-  if (this.step == this.election.numcands - 1) {
+  if (this.step === this.election.numcands - 1) {
     this.done = true;
   }
   return this.round;
@@ -68,7 +68,7 @@ Borda.prototype.canbackward = function () {
   return this.step !== 0 && this.election !== null;
 }
 Borda.prototype.backward = function() {
-  if (this.step == 1) {
+  if (this.step === 1) {
     this.round = {
       candidates: this.election.candidates.slice(),
       votes: Array(this.election.numcands).fill(null),
@@ -77,7 +77,7 @@ Borda.prototype.backward = function() {
     };
     this.step = 0;
   } else {
-    if (this.step == this.election.numcands - 1) {
+    if (this.step === this.election.numcands - 1) {
       this.done = false;
     }
     this.step -= 1;
@@ -97,7 +97,7 @@ Borda.prototype.backward = function() {
     for (var j = 0; j < this.round.candidates.length; j++) {
       total += this.round.votes[j];
     }
-    for (var j = 0; j < this.round.candidates.length; j++) {
+    for (j = 0; j < this.round.candidates.length; j++) {
       this.round.shares[j] = (this.round.votes[j] / total) * 100;
       this.round.eliminated[j] = "#" + this.step + " votes included.";
     }

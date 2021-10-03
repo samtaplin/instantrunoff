@@ -34,7 +34,7 @@ Plurality.prototype.forward = function() {
   for (var j = 0; j < this.round.candidates.length; j++) {
     total += votes[j];
   }
-  for (var j = 0; j < this.round.candidates.length; j++) {
+  for (j = 0; j < this.round.candidates.length; j++) {
     this.round.shares[j] = (this.round.votes[j] / total) * 100;
     if (j === 0) {
       this.round.eliminated[j] = "Winner";

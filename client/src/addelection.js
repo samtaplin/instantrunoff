@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import './index.css';
@@ -181,7 +180,7 @@ class AddElection extends React.Component {
           election['numcands'] = numcands;
           election['username'] = this.state.user.username;
           election['password'] = this.state.user.password;
-          axios.post('/createelect', election)
+          axios.post('/createelect/', election)
           .then(response => {
             this.setState({ createret: response.data });
             if (response.data !== "createfailed") {

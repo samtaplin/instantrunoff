@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Layout, Breadcrumb} from 'antd';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -7,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Card from 'react-bootstrap/Card';
 import './index.css';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 
   function about() {
@@ -78,7 +77,7 @@ const { Header, Content, Footer } = Layout;
           <Card fixed="bottom">
           <Card.Body>
           <Card.Title>About</Card.Title>
-          <Card.Text> Social Choice was created by Sam Taplin. The source code is avaliable at https://github.com/samtaplin/instantrunoff</Card.Text>
+          <Card.Text> Social Choice was created by Sam Taplin. The source code is avaliable at https://github.com/samtaplin/socialchoice</Card.Text>
           </Card.Body>
           </Card>
           </div>

@@ -64,7 +64,7 @@ Condorcet.prototype.forward = function() {
   if (winner !== 'tie') {
     this.round.votes[winner] += 1;
     let loser;
-    if (this.i == winner) {
+    if (this.i === winner) {
       loser = this.j;
     } else {
       loser = this.i;
@@ -73,7 +73,7 @@ Condorcet.prototype.forward = function() {
   } else {
     status = candorder[this.i] + " and " + candorder[this.j] + " tie with " + winvotes + " votes each."
   }
-  for (var j = 0; j < this.round.candidates.length; j++) {
+  for (j = 0; j < this.round.candidates.length; j++) {
     this.round.shares[j] = (this.round.votes[j] / total) * 100;
     this.round.eliminated[j] = status;
   }
@@ -117,7 +117,7 @@ Condorcet.prototype.swap = function(i, j) {
 }
 
 Condorcet.prototype.backward = function() {
-  if (this.step == 1) {
+  if (this.step === 1) {
     this.round = {
       candidates: this.election.candidates.slice(),
       votes: Array(this.election.numcands).fill(0),
@@ -133,9 +133,9 @@ Condorcet.prototype.backward = function() {
       this.done = false;
       const candorder = this.election.candidates;
       for (var i = 0; i < this.election.numcands; i++) {
-        if (this.round.candidates[i] != candorder[i]) {
+        if (this.round.candidates[i] !== candorder[i]) {
           for (var j = i + 1; j < this.election.numcands; j++) {
-            if (this.round.candidates[j] == candorder[i]) {
+            if (this.round.candidates[j] === candorder[i]) {
               this.swap(i, j);
               break;
             }

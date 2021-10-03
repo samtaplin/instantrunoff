@@ -39,7 +39,7 @@ Hare.prototype.forward = function() {
     total += votes[j];
   }
   if (this.round.votes[0] > (total / 2)) {
-    for (var j = 0; j < this.round.candidates.length; j++) {
+    for (j = 0; j < this.round.candidates.length; j++) {
       this.round.shares[j] = (this.round.votes[j] / total) * 100;
       if (j === 0) {
         this.round.eliminated[j] = "Winner";
@@ -49,7 +49,7 @@ Hare.prototype.forward = function() {
     }
     this.done = true;
   } else {
-    for (var j = 0; j < this.round.candidates.length; j++) {
+    for (j = 0; j < this.round.candidates.length; j++) {
       this.round.shares[j] = (this.round.votes[j] / total) * 100;
       if (j < this.round.candidates.length - 1 - this.step) {
         this.round.eliminated[j] = "Active";
@@ -67,12 +67,12 @@ Hare.prototype.canbackward = function () {
   return this.step !== 0 && this.election !== null;
 }
 Hare.prototype.backward = function() {
-    if (this.done == true) {
+    if (this.done === true) {
       this.done = false;
     }
     this.step -= 1;
     this.defeated.delete(this.round.candidates[this.round.candidates.length - 1 - this.step]);
-    if (this.step == 0) {
+    if (this.step === 0) {
       this.round = {
         candidates: this.election.candidates.slice(),
         votes: Array(this.election.numcands).fill(null),

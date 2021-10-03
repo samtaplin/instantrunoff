@@ -3,10 +3,9 @@ import { Form, Input, Button, Checkbox, Layout, Breadcrumb, notification} from '
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Card from 'react-bootstrap/Card';
 import './index.css';
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 const axios = require('axios');
 
 Storage.prototype.setObject = function(key, value) {
@@ -31,7 +30,7 @@ class Login extends React.Component {
           password: values.password,
           username: values.username
         }
-        axios.post('/create', article)
+        axios.post('/create/', article)
         .then(response => {
           this.setState({ createres: response.data });
           if (response.data !== "Username Already Exists") {
@@ -51,7 +50,7 @@ class Login extends React.Component {
 
       return (
         <Form
-          name="basic"
+          name="create"
           labelCol={{
             span: 8,
           }}
@@ -121,7 +120,7 @@ class Login extends React.Component {
             password: values.password,
             username: values.username
           }
-          axios.post('/login', article)
+          axios.post('/login/', article)
           .then(response => {
             this.setState({ loginres: response.data });
             if (response.data !== 'denied') {
@@ -142,7 +141,7 @@ class Login extends React.Component {
 
       return (
         <Form
-          name="basic"
+          name="login"
           labelCol={{
             span: 8,
           }}
