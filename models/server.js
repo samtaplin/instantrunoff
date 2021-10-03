@@ -52,7 +52,7 @@ class Server {
     });
 
     this.app.post('/create/', (req, res) => {
-      this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
+      this.User.findOne({ username: req.body.username}, (err, user) => {
             if (user) {
               res.send('Username Already Exists')
             } else {
@@ -100,17 +100,13 @@ class Server {
         })
     });
     this.app.post('/linkelect/', (req, res) => {
-      console.log(req);
       this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
         if (user) {
-          console.log(user);
           var neweids = user.eids;
           neweids.push(req.body.eid);
           user.eids = neweids;
-          console.log(user.eids);
           user.save().then(() => {res.send(user);});
         } else {
-          console.log(err);
           res.send('createfailed');
         }
       })
