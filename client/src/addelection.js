@@ -186,12 +186,18 @@ class AddElection extends React.Component {
           };
           axios.post('/createelect/', election)
           .then(response => {
+            console.log("cesucceeded");
+            console.log(response);
             this.setState({ createret: response.data });
             if (response.data !== "createfailed") {
+              console.log("updatedeid");
               request['eid'] = response.data;
+              console.log(request);
             }
           }
         ).then(() => {
+          console.log('tosecod');
+          console.log(request);
           axios.post('/linkelect/', request)
           .then(response => {
             this.setState({ createret: response.data });
