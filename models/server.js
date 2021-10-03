@@ -91,18 +91,29 @@ class Server {
       this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
             if (user) {
               created.save().then(saveddoc => {
-                var neweids = user.eids;
-                neweids.push(saveddoc._id.toString());
-                user.eids = neweids;
-              }).then(() => {
-                console.log(user.eids)
-                user.save();
-              }).then(() => {res.send(user);});
+                res.send(saveddoc._id.toString());
+              });
             } else {
               console.log(err);
               res.send('createfailed')
           }
         })
+    });
+    this.app.post('/linkelect/', (req, res) => {
+      console.log(req);
+      this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
+        if (user) {
+          console.log(user);
+          var neweids = user.eids;
+          neweids.push(req.body.eid);
+          user.eids = neweids;
+          console.log(user.eids);
+          user.save().then(() => {res.send(user);});
+        } else {
+          console.log(err);
+          res.send('createfailed');
+        }
+      })
     });
     this.app.get("*", (req, res) => {
       res.sendFile(

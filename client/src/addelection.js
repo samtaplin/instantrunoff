@@ -180,22 +180,36 @@ class AddElection extends React.Component {
           election['numcands'] = numcands;
           election['username'] = this.state.user.username;
           election['password'] = this.state.user.password;
+          var request = {
+            "username": this.state.user.username,
+            "password": this.state.user.password
+          };
           axios.post('/createelect/', election)
+          .then(response => {
+            this.setState({ createret: response.data });
+            if (response.data !== "createfailed") {
+              request['eid'] = response.data;
+            }
+          }
+        ).then(() => {
+          axios.post('/linkelect/', request)
           .then(response => {
             this.setState({ createret: response.data });
             if (response.data !== "createfailed") {
               window.localStorage.setObject("user", response.data);
               this.props.history.push("/simulator");
             }
-          }
-        ).catch(err => {
+        });
+      }).catch(err => {
         console.log(err);
         this.setState({ election: null });
-        })
+      });
+      console.log(request);
           console.log('Received values of form:', values);
           console.log('Received Ballots of form:', ballots);
           console.log('Received Election of form:', election);
       };
+
 
         return (
           <Form size='large'
