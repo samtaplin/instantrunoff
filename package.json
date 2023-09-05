@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Allows users to use decision rules to make social choices",
   "main": "app.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "node app",
     "server": "nodemon",
