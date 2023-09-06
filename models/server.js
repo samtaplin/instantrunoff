@@ -118,7 +118,7 @@ class Server {
           name: req.body.name,
           description: req.body.description,
           numcands: req.body.numcands,
-          candidates: ballots[0],
+          candidates: ballots[0].order,
           ballots: ballots
         });
         this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
