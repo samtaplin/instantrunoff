@@ -124,7 +124,10 @@ class Server {
         this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
           if (user) {
             created.save().then(saveddoc => {
-              res.send(saveddoc._id.toString());
+              var neweids = user.eids;
+              neweids.push(req.body.eid);
+              user.eids = neweids;
+              user.save().then(() => {res.send(saveddoc._id.toString());});
             });
           } else {
             console.log(err);
