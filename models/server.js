@@ -5,6 +5,7 @@ const multer = require('multer');
 const upload = multer({ dest: 'tmp/csv/' });
 const csv = require('fast-csv');
 var ObjectId = require('mongoose').Types.ObjectId;
+const fs = require('fs');
 
 function parseCsvData(rows) {
   const dataRows = rows.slice(1, rows.length); //ignore header at 0 and get rest of the rows
