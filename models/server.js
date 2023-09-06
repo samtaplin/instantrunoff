@@ -1,7 +1,19 @@
 const express = require('express'); // Include ExpressJS
 const cors = require('cors');
 const path = require("path");
+const multer = require('multer');
+const upload = multer({ dest: 'tmp/csv/' });
+const csv = require('fast-csv');
 var ObjectId = require('mongoose').Types.ObjectId;
+
+function parseCsvData(rows) {
+  const dataRows = rows.slice(1, rows.length); //ignore header at 0 and get rest of the rows
+  const ballots = [];
+  for (let i = 0; i < dataRows.length; i++) {
+    ballots.push(dataRows[i].slice(1));
+  }
+  return ballots;
+}
 
 class Server {
   constructor() {
@@ -79,6 +91,38 @@ class Server {
         })
     });
 
+  this.app.post('/uploadelect/', upload.single('file'), (req, res) => {
+      const fileRows = [];
+
+  // open uploaded file
+      csv.fromPath(req.file.path)
+        .on("data", function (data) {
+          fileRows.push(data); // push each row
+        })
+        .on("end", function () {
+          console.log(fileRows)
+          fs.unlinkSync(req.file.path);   // remove temp file
+          const ballots = parseCsvData(fileRows);
+          var created = new this.Election({
+            name: req.body.name,
+            description: req.body.description,
+            numcands: req.body.numcands,
+            candidates: ballots[0],
+            ballots: ballots
+          });
+          this.User.findOne({ username: req.body.username, password: req.body.password}, (err, user) => {
+            if (user) {
+              created.save().then(saveddoc => {
+                res.send(saveddoc._id.toString());
+              });
+            } else {
+              console.log(err);
+              res.send('createfailed')
+          }
+          })
+        })
+    });
+    
     this.app.post('/createelect/', (req, res) => {
       // Insert Login Code Here
       var created = new this.Election({
