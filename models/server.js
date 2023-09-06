@@ -125,7 +125,7 @@ class Server {
           if (user) {
             created.save().then(saveddoc => {
               var neweids = user.eids;
-              neweids.push(req.body.eid);
+              neweids.push(saveddoc._id);
               user.eids = neweids;
               user.save().then(() => {res.send(saveddoc._id.toString());});
             });
