@@ -11,7 +11,11 @@ function parseCsvData(rows) {
   const dataRows = rows.slice(1, rows.length); //ignore header at 0 and get rest of the rows
   const ballots = [];
   for (let i = 0; i < dataRows.length; i++) {
-    ballots.push(dataRows[i].slice(1));
+    profile = {
+      votes: 1,
+      order: dataRows[i].slice(1)
+    }
+    ballots.push(profile);
   }
   return ballots;
 }
@@ -109,6 +113,7 @@ class Server {
         })
       })
       promise.then((ballots) => {
+
         var created = new this.Election({
           name: req.body.name,
           description: req.body.description,
