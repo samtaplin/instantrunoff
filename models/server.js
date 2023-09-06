@@ -95,7 +95,7 @@ class Server {
       const fileRows = [];
 
   // open uploaded file
-      csv.fromPath(req.file.path)
+      csv.parseFile(req.file.path)
         .on("data", function (data) {
           fileRows.push(data); // push each row
         })
